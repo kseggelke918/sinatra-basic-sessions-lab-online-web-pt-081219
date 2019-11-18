@@ -1,5 +1,4 @@
 require_relative 'config/environment'
-require 'securerandom'
 
 class App < Sinatra::Base
   
@@ -13,9 +12,9 @@ class App < Sinatra::Base
   end 
   
   post '/checkout' do 
-    @item = params[:item]
-    @session = session 
-    erb :checkout 
+    @item = params["item"]
+    @session = session
+    @sessions[:item] = item 
   end 
   
 end
